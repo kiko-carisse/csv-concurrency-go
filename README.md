@@ -1,9 +1,9 @@
 # csv-concurrency-go
 Setup
 1. Create folder structure
-in_csv/app-records.csv
-logging/
-out_csv/
+in_csv/app-records.csv  
+logging/  
+out_csv/  
 
 Execution (from command line)
 1. Do go run on the go file, and pass in the number of go routines you want the records spread evenly accross.
