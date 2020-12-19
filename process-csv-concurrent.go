@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-// recordRespDetailsDS ...
+// recordRespDetailsDS Struct for unmarshalling response from sendRecordAPICall
 type recordRespDetailsDS struct {
 	ID int `json:"id"`
 }
