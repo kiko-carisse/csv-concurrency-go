@@ -279,7 +279,7 @@ func writeToAPIErrorsCSV(dataRow []string, rtNum int, append bool) {
 	if append {
 		writeOptions = os.O_APPEND | os.O_CREATE | os.O_WRONLY
 	}
-	file, err := os.OpenFile("logging/"+strconv.Itoa(rtNum)+"-errors.csv", writeOptions, 0644)
+	file, err := os.OpenFile("logging/"+strconv.Itoa(rtNum)+"-api-errors.csv", writeOptions, 0644)
 	defer file.Close()
 
 	if err != nil {
@@ -308,12 +308,12 @@ func aggregateAPIErrorCSVs(numCSVs int) {
 		func() { // anonymous function, so we can do a controlled "try, catch" or panic recover as Go calls it.
 			defer func() { // this is the "catch". It runs at the end of it's enclosing function if there is an "exception"/panic thrown.
 				if ex := recover(); ex != nil {
-					// Silent fail
+					// Silent fail. Likely will fail if the -api-errors.csv file doesn't exist, which it wouldn't if no api errors were thrown. Maybe fix this later
 					// fmt.Println(fmt.Errorf("%v", ex))
 				}
 			}()
 
-			csvfile, err := os.Open("logging/" + strconv.Itoa(csvNum) + "-errors.csv")
+			csvfile, err := os.Open("logging/" + strconv.Itoa(csvNum) + "-api-errors.csv")
 			if err != nil {
 				panic(err)
 			}
@@ -348,7 +348,7 @@ func aggregateAPIErrorCSVs(numCSVs int) {
 			csvfile.Close()
 
 			// after scraping it, delete it.
-			var errDel = os.Remove("logging/" + strconv.Itoa(csvNum) + "-errors.csv")
+			var errDel = os.Remove("logging/" + strconv.Itoa(csvNum) + "-api-errors.csv")
 			if errDel != nil {
 				fmt.Println(errDel.Error())
 			}
@@ -365,7 +365,7 @@ func writeAggregateToCombinedAPIErrorResultsCSV(csvDataRows [][]string, append b
 	if append {
 		writeOptions = os.O_APPEND | os.O_CREATE | os.O_WRONLY
 	}
-	file, err := os.OpenFile("logging/output-errors.csv", writeOptions, 0644)
+	file, err := os.OpenFile("logging/api-errors.csv", writeOptions, 0644)
 	defer file.Close()
 
 	if err != nil {
