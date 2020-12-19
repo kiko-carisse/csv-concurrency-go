@@ -1,6 +1,6 @@
 # csv-concurrency-go
 Setup
-1. Create folder structure
+1. Create folder structure  
 in_csv/app-records.csv  
 logging/  
 out_csv/  
