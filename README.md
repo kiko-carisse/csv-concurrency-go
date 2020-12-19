@@ -10,7 +10,7 @@ Execution (from command line)
 go run process-csv-conurrect.go 5
 
 Details:
-If you pass in a number of go routines that exceeds the number of records, the number you've requested will be reset to the number of records.
-Eg: 5 records, 6 requested go routines will turn into 5 requested go routines.
+If you pass in a number of go routines that exceeds the number of records, the number you've requested will be reset to the number of records.  
+Eg: 5 records with 6 requested go routines will turn into 5 requested go routines.
 
 
