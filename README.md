@@ -1,7 +1,7 @@
 # csv-concurrency-go
 Setup
 1. Create folder structure  
-in_csv/app-records.csv  
+in_csv/all-records.csv  
 logging/  
 out_csv/  
 2. The code is runnable at this point. It will hit json placeholder api and return success results in the out_csv/.  
