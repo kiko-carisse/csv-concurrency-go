@@ -143,6 +143,7 @@ func main() {
 
 }
 
+// processRecordsHeap this is the main function that each go routine runs. This processes the groups of csv records form dataRowsHeap [][]string.
 func processRecordsHeap(rtNum int, headerRow []string, dataRowsHeap [][]string, h map[string]int) {
 
 	allRecordsStartTime := time.Now().Unix()
@@ -187,6 +188,7 @@ func processRecordsHeap(rtNum int, headerRow []string, dataRowsHeap [][]string, 
 
 }
 
+// sendRecordAPICall function for making an api call to /posts, or wherever you want to change it to.
 func sendRecordAPICall(colOneSTRID string, processedVar float64, recordRespDetails *recordRespDetailsDS, rtNum int) {
 
 	recordOnboardAPIStartTime := time.Now().Unix()
