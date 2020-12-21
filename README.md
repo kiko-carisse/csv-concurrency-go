@@ -1,4 +1,7 @@
 # csv-concurrency-go
+Purpose  
+To process records of a single csv file across concurrently across multiple go routines. Default setup is to send them over an api endpoint.
+
 Setup
 1. Create folder structure  
 in_csv/all-records.csv  
